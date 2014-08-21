@@ -164,6 +164,10 @@ angular.module('starter.controllers', ['restservicemod'])
     
 })
 
+.controller('CreateeventCtrl', function($scope, $stateParams, RestService) {
+    
+})
+
 .controller('PrintticketCtrl', function($scope, $stateParams, RestService) {
     $scope.uid=$stateParams.uid;
     $scope.id=$stateParams.id;

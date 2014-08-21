@@ -1,0 +1,116 @@
+<ion-view title="Create Event">
+    <ion-content class="has-header">
+        
+        <div class="list">
+           <div class="item item-divider">
+               Add Event Details
+           </div>
+            <label class="item item-input item-stacked-label">
+                <span class="input-label">Event Title</span>
+                <input type="text" placeholder="Event Title*">
+            </label>
+            <label class="item item-input item-stacked-label">
+                <span class="input-label">Event Title Alias</span>
+                <input type="text" placeholder="Event Title Alias*">
+            </label>
+            <label class="item item-input item-stacked-label">
+                <span class="input-label">Venue</span>
+                <input type="text" placeholder="Venue">
+            </label>
+            <label class="item item-input item-stacked-label">
+                <span class="input-label">Location</span>
+                <input type="text" placeholder="Location">
+            </label>
+            <label class="item item-input item-stacked-label">
+                <span class="input-label">Start Date</span>
+                <input type="date" placeholder="Start Date">
+            </label>
+            <label class="item item-input item-select">
+                <div class="input-label">
+                    Start Time
+                </div>
+                <select>
+                    <option>00:00</option>
+                    <option selected>01:00</option>
+                    <option>02:00</option>
+                </select>
+            </label>
+            <label class="item item-input item-stacked-label">
+                <span class="input-label">End Date</span>
+                <input type="date" placeholder="End Date">
+            </label>
+            <label class="item item-input item-select">
+                <div class="input-label">
+                    End Time
+                </div>
+                <select>
+                    <option>00:00</option>
+                    <option selected>01:00</option>
+                    <option>02:00</option>
+                </select>
+            </label>
+            <label class="item item-input item-stacked-label">
+                <span class="input-label">Event Logo</span>
+                <input type="file">
+            </label>
+            <label class="item item-input item-stacked-label">
+                <span class="input-label">Event Description</span>
+                <textarea placeholder="Event Description"></textarea>
+            </label>
+            <div class="item item-divider">
+                Create Tickets
+            </div>
+            <div class="item item-text-wrap">
+               <p>What type of ticket would you like to start with?</p> 
+                            <button class="button button-block button-positive">
+                                Free Tickets
+                            </button>
+            </div>
+            <div class="item item-divider">
+                Additional Settings
+            </div>
+
+                <label class="item item-radio">
+                    <input type="radio" name="group">
+                    <div class="item-content">
+                        Public Page
+                    </div>
+                    <i class="radio-icon ion-checkmark-round"></i>
+                </label>
+                <label class="item item-radio">
+                    <input type="radio" name="group">
+                    <div class="item-content">
+                        Private Page
+                    </div>
+                    <i class="radio-icon ion-checkmark-round"></i>
+                </label>
+
+                <label class="item item-input item-select">
+                    <div class="input-label">
+                        Event Type
+                    </div>
+                    <select>
+                        <option>Category1</option>
+                        <option selected>Category2</option>
+                        <option>Category3</option>
+                    </select>
+                </label>
+                <label class="item item-input item-select">
+                    <div class="input-label">
+                        Event Topic
+                    </div>
+                    <select>
+                        <option>Topic1</option>
+                        <option selected>Topic2</option>
+                        <option>Topic3</option>
+                    </select>
+                </label>
+            
+            
+        </div>
+        <button class="button button-full button-balanced">
+            Save Event
+        </button>
+        
+    </ion-content>
+</ion-view>
