@@ -23,7 +23,10 @@
                 <p><i class="icon ion-person"></i>
                     <br>by {{printticket.organizername}}</p>
             </div>
-            <div class="item" ng-repeat="ticket in printticket.usertickets">Ticket <span class="balanced">{{ticket.ticket}}</span> Quantity <span class="balanced">{{ticket.quantity}}</span></div>
+            <div class="item" ng-repeat="ticket in printticket.usertickets">
+                <span class="balanced">{{ticket.quantity}} {{ticket.ticket}} Ticket</span> Quantity <span class="balanced"></span>
+                <input type="text" ng-model="{{ticket.quantity}}">
+            </div>
         </div>
         
     </ion-content>

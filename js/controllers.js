@@ -164,7 +164,116 @@ angular.module('starter.controllers', ['restservicemod'])
     
 })
 
-.controller('CreateeventCtrl', function($scope, $stateParams, RestService) {
+.controller('CreateeventCtrl', function($scope, $stateParams, RestService, TopicService, CategoryService) {
+    //aunthenticate
+        var user=function(data,status){
+            console.log(data);
+            $scope.organizername=data.firstname;
+            $scope.form.organizer=data.id;
+        };
+        if(RestService.authenticate()!=false)
+          {
+              
+          RestService.findoneuser(authenticate.id).success(user);
+              console.log(authenticate);
+            $scope.uid=authenticate.id;
+              console.log(authenticate.id);
+            $scope.isloggedin=1;
+            $scope.loginlogout="Logout";
+          }
+    //aunthenticate
+    
+      $scope.form={};
+     //map //###########################################Map#########################################################https://www.google.co.in/maps/search//@19.2107346,73.1063761,15z
+     $scope.visible=false;
+     $scope.showmap=function(){
+         alert("hello");
+         $scope.visible=true;
+     };
+     $scope.hidemap=function(){
+         $scope.visible=false;
+     };
+     var mapp=function(data, state){
+         console.log(data.results[0].geometry.location.lat);
+         console.log(data.results[0].geometry.location.lng);
+         $scope.form.locationlat=data.results[0].geometry.location.lat;
+         $scope.form.locationlon=data.results[0].geometry.location.lng;
+         
+     };
+     $scope.getmap=function(location,state,pin,street){
+         console.log(location);
+         console.log(state);
+         console.log(street);
+         console.log(pin);
+         $scope.lmap=location+","+pin+","+state+","+street;
+         console.log($scope.lmap);
+         RestService.getmap($scope.lmap).success(mapp);
+     };
+                
+     //###########################################Map#########################################################
+    //########################################################################################
+     $scope.form.tickets=[];
+      //$scope.total=0;
+      $scope.visible=false;
+     $scope.addticket=function(type){
+         $scope.visible=true;
+        
+         $scope.userfreeticket={"name":"","qty":"","price":0,"pricetype":type};
+       // $scope.userfreeticket=$scope.userfreeticket.join();
+         $scope.form.tickets.push($scope.userfreeticket);
+          $scope.total=$scope.form.tickets.qty;
+     };
+  
+     
+      $scope.remove=function(index){
+          console.log("index:"+index);
+        $scope.form.tickets.splice(index, 1);
+     };
+     //########################################################################################
+    var topics = function (data, status) {
+                $scope.topics = data;
+
+            };
+            TopicService.getmydetails().success(topics);
+
+         var categories = function (data, status) {
+             $scope.categories = data;
+
+         };
+
+         CategoryService.getmydetails().success(categories);
+    
+    // on submit
+    var created = function (data, state) {
+            //console.log(data);
+            $scope.form.id=data;
+            alert("Event Saved");
+        };
+    
+    $scope.onsubmit = function (form) {
+            console.log(form);
+            alert(form);
+        form.logo= $(".myiframe").contents().find("body img").attr("src");
+                //$("input#iimage").val("hello");
+                console.log(form.logo);
+        form.ticketname=form.tickets[0].name;
+        form.ticketqty=form.tickets[0].qty;
+        form.ticketprice=form.tickets[0].price;
+        form.ticketpricetype=form.tickets[0].pricetype;
+        for(var i= 1;i<form.tickets.length;i++)
+        {
+        form.ticketname+=","+form.tickets[i].name;
+        form.ticketqty+=","+form.tickets[i].qty;
+        form.ticketprice+=","+form.tickets[i].price;
+        form.ticketpricetype+=","+form.tickets[i].pricetype;
+        }
+         
+        //form.category=form.category.join();
+        //form.topic=form.topic.join();
+        RestService.createevent(form).success(created);
+        };
+    // on submit
+    
     
 })
 

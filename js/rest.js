@@ -1,4 +1,5 @@
 var adminurl="http://digitalmindsinc.co/eglapp11/admin/index.php/";
+var apiServer ="http://digitalmindsinc.co/eglapp11/admin/index.php/";
 var restservicemod = angular.module('restservicemod', [])
 .factory('RestService',function($http)
 {
@@ -17,6 +18,12 @@ var restservicemod = angular.module('restservicemod', [])
             {
                 return false;
             }
+        },
+        getmap: function(data){
+            return $http.get("https://maps.googleapis.com/maps/api/geocode/json?address="+data+"&key=AIzaSyAj0OXepKIgjTlZiPe_ZVYTDjL8rYpobgQ",{});
+        },
+        findoneuser: function (data) {
+            return $http.get(adminurl+"user/findone",{params: {id:data}});
         },
         logout: function () {
             $.jStorage.flush();
@@ -40,8 +47,39 @@ var restservicemod = angular.module('restservicemod', [])
         getsavedevents: function (uid) {
             return $http.get(adminurl+"event/getsavedevents?user="+uid,{});
         },
+        createevent: function (data) {
+            console.log(data);
+            return $http.get(adminurl+"event/create",{params:data});
+        },
         saveticket: function (user,event,ticketid,ticketquantity) {
             return $http.get(adminurl+"order/create?user="+user+"&event="+event+"&ticketid="+ticketid+"&ticketquantity="+ticketquantity,{});
+        }
+    }
+});
+
+
+restservicemod.factory('TopicService', function ($http) {
+
+
+    return {
+        getmydetails: function () {
+            return $http.get(apiServer+"topic/find",{})
+        },
+        createevent: function (data) {
+            return $http.get(adminurl+"event/create",{params:data});
+        }
+    }
+});
+
+restservicemod.factory('CategoryService', function ($http) {
+
+
+    return {
+        getmydetails: function () {
+            return $http.get(apiServer+"category/find",{})
+        },
+        findone: function(data){
+            return $http.get(adminurl+"category/findone?id="+data,{});
         }
     }
 });
