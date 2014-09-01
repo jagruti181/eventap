@@ -187,7 +187,6 @@ angular.module('starter.controllers', ['restservicemod'])
      //map //###########################################Map#########################################################https://www.google.co.in/maps/search//@19.2107346,73.1063761,15z
      $scope.visible=false;
      $scope.showmap=function(){
-         alert("hello");
          $scope.visible=true;
      };
      $scope.hidemap=function(){
