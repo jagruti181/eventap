@@ -1,5 +1,5 @@
-var adminurl="http://digitalmindsinc.co/eglapp11/admin/index.php/";
-var apiServer ="http://digitalmindsinc.co/eglapp11/admin/index.php/";
+var adminurl="http://localhost/eglapp11/admin/index.php/";
+var apiServer ="http://localhost/eglapp11/admin/index.php/";
 var restservicemod = angular.module('restservicemod', [])
 .factory('RestService',function($http)
 {

@@ -182,7 +182,7 @@ angular.module('starter.controllers', ['restservicemod'])
             $scope.loginlogout="Logout";
           }
     //aunthenticate
-    
+    $scope.ipath="templates/f2.php?id=event";
       $scope.form={};
      //map //###########################################Map#########################################################https://www.google.co.in/maps/search//@19.2107346,73.1063761,15z
      $scope.visible=false;
