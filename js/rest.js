@@ -1,5 +1,5 @@
-var adminurl="http://localhost/eglapp11/admin/index.php/";
-var apiServer ="http://localhost/eglapp11/admin/index.php/";
+var adminurl="http://digitalmindsinc.co/eglapp11/admin/index.php/";
+var apiServer ="http://digitalmindsinc.co/eglapp11/admin/index.php/";
 var restservicemod = angular.module('restservicemod', [])
 .factory('RestService',function($http)
 {
@@ -49,7 +49,7 @@ var restservicemod = angular.module('restservicemod', [])
         },
         createevent: function (data) {
             return $http({
-                url: 'http://localhost/eglapp11/admin/index.php/event/create',
+                url: 'http://digitalmindsinc.co/eglapp11/admin/index.php/event/create',
                 method: "POST",
                data: {'title':data.title,
                       'locationlat':data.locationlat,
