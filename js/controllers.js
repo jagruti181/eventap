@@ -212,6 +212,8 @@ angular.module('starter.controllers', ['restservicemod'])
      //###########################################Map#########################################################
     //########################################################################################
      $scope.form.tickets=[];
+     $scope.form.category=[];
+     $scope.form.topic=[];
       //$scope.total=0;
       $scope.visible=false;
      $scope.addticket=function(type){
@@ -251,10 +253,7 @@ angular.module('starter.controllers', ['restservicemod'])
     
     $scope.onsubmit = function (form) {
             console.log(form);
-            alert(form);
-        form.logo= $(".myiframe").contents().find("body img").attr("src");
-                //$("input#iimage").val("hello");
-                console.log(form.logo);
+           // alert(form);
         form.ticketname=form.tickets[0].name;
         form.ticketqty=form.tickets[0].qty;
         form.ticketprice=form.tickets[0].price;
@@ -266,7 +265,7 @@ angular.module('starter.controllers', ['restservicemod'])
         form.ticketprice+=","+form.tickets[i].price;
         form.ticketpricetype+=","+form.tickets[i].pricetype;
         }
-         
+
         //form.category=form.category.join();
         //form.topic=form.topic.join();
         RestService.createevent(form).success(created);
@@ -280,7 +279,13 @@ angular.module('starter.controllers', ['restservicemod'])
     $scope.uid=$stateParams.uid;
     $scope.id=$stateParams.id;
     var printticket=function(data, status){
-            console.log(data);
+            console.log(data.usertickets);
+          $scope.addticket=0;  
+        for(var i= 0;i<data.usertickets.length;i++)
+        {
+        $scope.addticket=$scope.addticket+parseInt(data.usertickets[i].quantity);
+        }
+        console.log($scope.addticket);
             $scope.printticket=data;
         };
     RestService.printticket($stateParams.uid,$stateParams.id).success(printticket);

@@ -4,9 +4,9 @@
         </ion-nav-buttons>
 
         <div class="img-header">
-            <img src="{{'http://digitalmindsinc.co/eglapp11/demo/'+printticket.logo}}" class="full-image">
+            <img src="{{'http://localhost/eglapp11/demo/'+printticket.logo}}" class="full-image">
         </div>
-        <img src="{{'http://digitalmindsinc.co/eglapp11/demo/'+printticket.logo}}" class="discover-image">
+        <img src="{{'http://localhost/eglapp11/demo/'+printticket.logo}}" class="discover-image">
         <h4 class="text-center">{{printticket.title}}</h4>
 
         <div class="list  text-center">
@@ -15,17 +15,20 @@
             </div>
             <div class="item">
                 <iframe width="100%" height="150" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=Mumbai%2C%20Maharashtra%2C%20India&key=AIzaSyCPdr5VG2QmzUdpExEivaSEMjm0vI3_Su4"></iframe>
+                
+                
                 <p><i class="icon ion-location"></i><br>Mumbai Bank
                     <br>{{printticket.location}}
-                    <br>400099</p>
+                    <br>400099
+                    <br>
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=23" alt="Scan the code" class="img-responsive qrcode"></p>
             </div>
             <div class="item">
                 <p><i class="icon ion-person"></i>
                     <br>by {{printticket.organizername}}</p>
             </div>
-            <div class="item" ng-repeat="ticket in printticket.usertickets">
-                <span class="balanced">{{ticket.quantity}} {{ticket.ticket}} Ticket</span> Quantity <span class="balanced"></span>
-                <input type="text" ng-model="{{ticket.quantity}}">
+            <div class="item">
+                <span class="balanced">{{addticket}} Ticket</span>
             </div>
         </div>
         

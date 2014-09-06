@@ -48,8 +48,38 @@ var restservicemod = angular.module('restservicemod', [])
             return $http.get(adminurl+"event/getsavedevents?user="+uid,{});
         },
         createevent: function (data) {
-            console.log(data);
-            return $http.get(adminurl+"event/create",{params:data});
+            return $http({
+                url: 'http://localhost/eglapp11/admin/index.php/event/create',
+                method: "POST",
+               data: {'title':data.title,
+                      'locationlat':data.locationlat,
+                      'locationlon':data.locationlon,
+                      'venue':data.venue,
+                      'location':data.location,
+                      'startdate':data.startdate,
+                      'enddate':data.enddate,
+                      'description':data.description,
+                      'organizer':data.organizer,
+                      'listingtype':data.listingtype,
+                      'showremainingticket':data.showremainingticket,
+                      'logo':data.logo,
+                      'category':data.category,
+                      'topic':data.topic,
+                      'starttime':data.starttime,
+                      'endtime':data.endtime,
+                      'ticketname':data.ticketname,
+                      'ticketqty':data.ticketqty,
+                      'ticketprice':data.ticketprice,
+                      'ticketpricetype':data.ticketpricetype,
+                      'email':data.email,
+                      'publicemail':data.publicemail,
+                      'state':data.state,
+                      'pin':data.pin,
+                      'street':data.street,
+                      'city':data.city,
+                      'above18':data.above18,
+                      'sponsorship':data.sponsorship}
+            });
         },
         saveticket: function (user,event,ticketid,ticketquantity) {
             return $http.get(adminurl+"order/create?user="+user+"&event="+event+"&ticketid="+ticketid+"&ticketquantity="+ticketquantity,{});
