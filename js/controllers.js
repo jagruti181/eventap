@@ -102,7 +102,7 @@ angular.module('starter.controllers', ['restservicemod'])
             $scope.find=data;
         };
         $scope.id="3";
-        RestService.findcategoryevent($scope.id).success(home);
+        RestService.find().success(home);
 })
 
 .controller('DiscoverinnerCtrl', function($scope, $stateParams, RestService) {

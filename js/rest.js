@@ -32,6 +32,9 @@ var restservicemod = angular.module('restservicemod', [])
         findcategoryevent: function (id) {
             return $http.get(adminurl+"category/findalleventbycategory",{params: {category:id}});
         },
+        find: function (data) {
+            return $http.get(adminurl+"event/find"+data,{});
+        },
         findone: function (data) {
             return $http.get(adminurl+"event/findone?id="+data,{});
         },
