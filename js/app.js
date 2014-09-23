@@ -92,6 +92,33 @@ angular.module('starter', ['ionic', 'starter.controllers'])
             controller: 'MyticketsCtrl'
         }
       }
+    })  
+    .state('app.myevents', {
+        url: "/myevents",
+      views: {
+        'menuContent' :{
+            templateUrl: "templates/myevents.html",
+            controller: 'MyeventsCtrl'
+        }
+      }
+    })  
+    .state('app.myprofile', {
+        url: "/myprofile",
+      views: {
+        'menuContent' :{
+            templateUrl: "templates/myprofile.html",
+            controller: 'MyprofileCtrl'
+        }
+      }
+    })  
+    .state('app.sponsor', {
+        url: "/sponsor",
+      views: {
+        'menuContent' :{
+            templateUrl: "templates/sponsor.html",
+            controller: 'SponsorCtrl'
+        }
+      }
     });
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/app/discover');

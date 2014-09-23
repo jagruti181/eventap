@@ -1,0 +1,31 @@
+<ion-view title="My Events">
+    <ion-content class="has-header">
+        <ion-nav-buttons side="right">
+            
+        </ion-nav-buttons>
+        <div class="list">
+           
+            <div class="item item-divider">My Events</div>
+            <div ng-repeat="val in find">
+                <div>
+                   <a class="item item-thumbnail-left" href="#/app/discover/inner/{{val.id}}">
+                    <img src="{{'http://digitalmindsinc.co/eglapp11/demo/'+val.logo}}">
+                    <h2>{{val.title}}</h2>
+                    <p>{{val.location}}</p>
+                    <span class="date">{{val.startdate}} @ {{val.starttime}}<span>
+                  <span class="item-note balanced">
+                      Free
+                  </span>
+                </a>
+                    <div class="button-bar">
+                      <a class="button button-small button-positive">Update</a>
+                      <a class="button button-small  button-assertive">Delete</a>
+                      <a class="button button-small button-stable">Disable</a>
+                    </div>
+
+                </div>
+            </div>
+            
+        </div>
+    </ion-content>
+</ion-view>

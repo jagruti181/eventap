@@ -73,3 +73,38 @@ fancy-select .list {
 .bar .title {
     font-size: 20px;
 }
+.divborder{
+border: 5px solid black;
+}
+.tableborder{
+    border-style:solid solid none solid;
+border: 2px solid #D6D6D6;
+}
+.table tr td
+{
+    border-style:solid none none none;
+    text-align: center;
+
+}
+.table tr
+{
+    border-style:solid none none none;
+
+}
+.table
+{
+    width: 100%;
+    padding: 10px;
+}
+.inputborder
+{
+    outline:solid 1px #D6D6D6;
+
+}
+.smallheight
+{
+    height:70px;
+    background: red;
+    color:white;
+
+}

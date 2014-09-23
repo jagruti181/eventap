@@ -103,6 +103,20 @@ angular.module('starter.controllers', ['restservicemod'])
         };
         $scope.id="3";
         RestService.find().success(home);
+})        
+.controller('MyeventsCtrl', function($scope, $stateParams, RestService) {
+       var home=function(data, status){
+            console.log(data);
+            $scope.find=data;
+        };
+        $scope.id="3";
+        RestService.find().success(home);
+})        
+.controller('MyprofileCtrl', function($scope, $stateParams, RestService) {
+       
+})       
+.controller('SponsorCtrl', function($scope, $stateParams, RestService) {
+       
 })
 
 .controller('DiscoverinnerCtrl', function($scope, $stateParams, RestService) {
