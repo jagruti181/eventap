@@ -21,7 +21,7 @@ $ftype=$_FILES['a']['type'];
 $ftmp=$_FILES['a']['tmp_name'];
 $randno=rand();
 $storage_path="../img/".$_GET['id'].$randno.".jpg";
-$storingin="http://localhost/eglap11/img/".$_GET['id'].$randno.".jpg";
+$storingin="http://digitalmindsinc.co/eglap11/img/".$_GET['id'].$randno.".jpg";
 if(move_uploaded_file($ftmp,$storingin))
 {
 //echo "file uploaded";
