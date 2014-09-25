@@ -170,12 +170,16 @@
                  </select>
             </label>
             <label class="item item-input item-stacked-label">
-                <form action="http://localhost/eglapp11/admin/index.php/event/filee" method="POST" enctype="multipart/form-data">
+              <span class="input-label">Logo<br>Note * Upload 200px : 200px Image
+               </label>
+               <!--input type="text" id="msg"-->
+                <iframe class="myiframe" src="{{ipath}}" width="300px" height="300px" frameBorder="0"> </iframe></span>
+                <!-- <form action="http://localhost/eglapp11/admin/index.php/event/filee" method="POST" enctype="multipart/form-data">
                     <span class="input-label">Event Logo</span>
                     <input type="file" name="file" id="file">
-                    <button name="submit">done</button><!--input type="submit" name="submit" value="Done" class="button button-block button-positive"-->
-                </form>
-            </label>
+                    <button name="submit">done</button>input type="submit" name="submit" value="Done" class="button button-block button-positive"
+                </form> -->
+            
             <label class="item item-input item-stacked-label">
                 <span class="input-label">Event Description</span>
                 <textarea placeholder="Event Description" ng-model="form.description"></textarea>

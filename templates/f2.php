@@ -1,7 +1,7 @@
 <html>
 <head>
 
-    <link rel="stylesheet" type="text/css" href="../css/style.css" />
+    <link rel="stylesheet" type="text/css" href="../css/main.css" />
     <style>
         body{
         background: white;
@@ -12,6 +12,7 @@
 
 <form method="POST" enctype="multipart/form-data">
 <?php
+$path="../img/default_upload_logo.gif";
 if(isset($_POST['reg']))
 {
 $fname=$_FILES['a']['name'];
@@ -19,17 +20,21 @@ $fsize=$_FILES['a']['size'];
 $ftype=$_FILES['a']['type'];
 $ftmp=$_FILES['a']['tmp_name'];
 $randno=rand();
-$storage_path="../img/".$randno.".jpg";
-if(move_uploaded_file($ftmp,$storage_path))
+$storage_path="../img/".$_GET['id'].$randno.".jpg";
+$storingin="http://localhost/eglap11/img/".$_GET['id'].$randno.".jpg";
+if(move_uploaded_file($ftmp,$storingin))
 {
 //echo "file uploaded";
-echo "<img src=".$storage_path." width='50px'>";
+    $path=$storage_path;
 }
 }
 ?>
-
+<?php
+echo "<img src=".$path." height='200px' width='200px'>"
+    ?>
 <input type="file" name="a"/>
-<input type="submit" class="btn btn-info" name="reg" value="Save Image"/>
+<p>
+    <input type="submit" class="btn btn-info" name="reg" value="Save Image"/></p>
 </form>
 
 </body>
